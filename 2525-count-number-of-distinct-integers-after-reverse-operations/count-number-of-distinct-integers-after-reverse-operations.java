@@ -12,7 +12,7 @@ int k=0;
 int rev1=0;
 while(i>0){
     int rem=i%10;
-    rev1=rev1*10+rem;
+    rev1=(rev1*10)+rem;
     i/=10;
     
 }
