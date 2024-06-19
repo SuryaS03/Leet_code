@@ -1,7 +1,7 @@
 class Solution {
     public int countDistinctIntegers(int[] nums) {
         int len=nums.length;
-        int rev[]=new int[len+len];
+        int rev[]=new int[2*len];
 
 int k=0;
  for(int l=0;l<len;l++){
