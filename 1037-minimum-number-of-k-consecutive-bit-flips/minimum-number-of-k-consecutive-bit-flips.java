@@ -1,19 +1,19 @@
 class Solution {
+  public int minKBitFlips(int[] nums, int k) {
+    int ans = 0;
+    int flippedTime = 0;
 
-    public int minKBitFlips(int[] nums, int k) {
-        int currWinFlipCnt = 0, totalFlipCnt = 0, size = nums.length;
-        for(int indx = 0; indx < size; indx++){
-           if(indx >= k){
-              int prevWinStartIndx = indx - k;
-              if(nums[prevWinStartIndx] == 2)currWinFlipCnt--;
-           } 
-           if(currWinFlipCnt % 2 == nums[indx]){
-              if(indx + k - 1 >= size)return -1;
-              nums[indx] = 2;
-              currWinFlipCnt++;
-              totalFlipCnt++;
-           }         
-        }
-        return totalFlipCnt;
+    for (int i = 0; i < nums.length; ++i) {
+      if (i >= k && nums[i - k] == 2)
+        --flippedTime;
+      if (flippedTime % 2 == nums[i]) {
+        if (i + k > nums.length)
+          return -1;
+        ++ans;
+        ++flippedTime;
+        nums[i] = 2;
+      }
     }
+    return ans;
+  }
 }
