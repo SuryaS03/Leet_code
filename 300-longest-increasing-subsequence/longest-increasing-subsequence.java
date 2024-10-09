@@ -1,14 +1,31 @@
 class Solution {
-    public int lengthOfLIS(int[] nums) {
-        int lis[]=new int[nums.length];
-        Arrays.fill(lis,1);
-        for(int i=0;i<nums.length;i++){
-            for(int j=0;j<i;j++){
-                if(nums[i]>nums[j] && lis[i]<lis[j]+1)
-                lis[i]=lis[j]+1;
+
+    public static void binSearch(List<Integer> li,int n){
+        int st=0;
+        int end=li.size()-1;
+        while(st<=end){
+            int mid=(st+end)/2;
+            if(li.get(mid)<n){
+                st=mid+1;
             }
+            else{
+                end=mid-1;
+            }}
+            li.set(st,n);
+        
+    }
+
+
+    public int lengthOfLIS(int[] nums) {
+       List <Integer> li=new ArrayList<>();
+       li.add(nums[0]);
+       for(int i=1;i<nums.length;i++){
+        if(li.get(li.size()-1)<nums[i])
+        li.add(nums[i]);
+        else{
+            binSearch(li,nums[i]);
         }
-        Arrays.sort(lis);
-        return lis[nums.length-1];
+       }
+       return li.size();
     }
 }
