@@ -29,9 +29,7 @@ class Solution {
 
             }
         }
-        for(int i[]:dp){
-System.out.print(Arrays.toString(i));
-        }
+      
         if(matrix[0][0]==1)
         res--;
         return res;
